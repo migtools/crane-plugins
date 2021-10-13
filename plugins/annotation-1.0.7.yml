@@ -1,0 +1,8 @@
+name: annotation
+shortDescription: annotation
+description: this is annotation
+version: 1.0.7
+binaries:
+- os: darwin
+  arch: arm64
+  uri: https://github.com/JaydipGabani/crane-lib/releases/download/v1.0.7/annotation-v1.0.7
