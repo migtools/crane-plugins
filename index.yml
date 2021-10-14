@@ -1,0 +1,4 @@
+hc_whiteout-0.0.1: https://github.com/konveyor/crane-plugins/raw/main/plugins/hc_whiteout-0.0.1.yml
+pvc-0.0.1: https://github.com/konveyor/crane-plugins/raw/main/plugins/pvc-0.0.1.yml
+annotation-1.0.7: https://github.com/konveyor/crane-plugins/raw/main/plugins/annotation-1.0.7.yml
+openshift-1.0.7: https://github.com/konveyor/crane-plugins/raw/main/plugins/openshift-1.0.7.yml

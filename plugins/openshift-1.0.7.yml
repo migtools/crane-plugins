@@ -1,0 +1,8 @@
+name: openshift
+shortDescription: openshift
+description: this is openshift
+version: 1.0.7
+binaries:
+- os: linux
+  arch: amd64
+  uri: https://github.com/JaydipGabani/crane-lib/releases/download/v1.0.7/openshift-v1.0.7
