@@ -1,4 +1,4 @@
-name: openshift
+name: OpenshiftPlugin
 shortDescription: openshift
 description: this is openshift
 version: 1.0.7

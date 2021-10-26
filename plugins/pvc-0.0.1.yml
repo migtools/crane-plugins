@@ -1,6 +1,6 @@
-name: pvc
-shortDescription: pvc
-description: this is pvc
+name: PVCProcessor
+shortDescription: pvc shortdescription
+description: this is pvc description
 version: 0.0.1
 binaries:
 - os: linux
