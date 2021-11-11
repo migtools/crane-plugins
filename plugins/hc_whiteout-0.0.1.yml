@@ -1,8 +1,0 @@
-name: hc-whiteout
-shortDescription: "hc-whiteout plugin"
-description: "this is hc-whiteout plugin"
-version: 0.0.1
-binaries:
-- os: linux
-  arch: amd64
-  uri: https://github.com/JaydipGabani/plugins/raw/master/hc-whiteout

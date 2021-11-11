@@ -39,16 +39,3 @@ This repository should be used as an example of how a plugin-index repository fo
           uri: <uri of binary>
           sha: <sha of binary>
     ```
-
-    Here is the one example for the `plugin-maniffest` - [openshift-1.0.7.yaml](plugins/openshift-1.0.7.yml)
-
-    ```
-      name: openshift
-      shortDescription: openshift
-      description: this is openshift
-      version: 1.0.7
-      binaries:
-      - os: linux
-        arch: amd64
-        uri: https://github.com/JaydipGabani/crane-lib/releases/download/v1.0.7/openshift-v1.0.7
-    ```
