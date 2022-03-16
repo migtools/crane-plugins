@@ -1,17 +1,17 @@
-name: OpenshiftPlugin
-shortDescription: OpenshiftPlugin
-description: this is OpenshiftPlugin
-version: v0.0.1
+name: OpenShiftPlugin
+shortDescription: OpenShiftPlugin
+description: this is OpenShiftPlugin
+version: v0.0.3
 binaries:
   - os: linux
     arch: amd64
-    uri: https://github.com/konveyor/crane-plugin-openshift/releases/download/v0.0.1/amd64-linux-openshiftplugin-v0.0.1
+    uri: https://github.com/konveyor/crane-plugin-openshift/releases/download/v0.0.3/amd64-linux-openshiftplugin-v0.0.3
   - os: darwin
     arch: amd64
-    uri: https://github.com/konveyor/crane-plugin-openshift/releases/download/v0.0.1/amd64-darwin-openshiftplugin-v0.0.1
+    uri: https://github.com/konveyor/crane-plugin-openshift/releases/download/v0.0.3/amd64-darwin-openshiftplugin-v0.0.3
   - os: darwin
     arch: arm64
-    uri: https://github.com/konveyor/crane-plugin-openshift/releases/download/v0.0.1/arm64-darwin-openshiftplugin-v0.0.1
+    uri: https://github.com/konveyor/crane-plugin-openshift/releases/download/v0.0.3/arm64-darwin-openshiftplugin-v0.0.3
 optionalFields:
   - flagName: "strip-default-pull-secrets"
     help:     "Whether to strip Pod and BuildConfig default pull secrets (beginning with builder/default/deployer-dockercfg-) that aren't replaced by the map param pull-secret-replacement"
