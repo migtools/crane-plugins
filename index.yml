@@ -1,3 +1,4 @@
 OpenshiftPlugin-v0.0.1: https://github.com/konveyor/crane-plugins/raw/main/plugins/Openshift/OpenshiftPlugin-v0.0.1.yml
 OpenShiftPlugin-v0.0.2: https://github.com/konveyor/crane-plugins/raw/main/plugins/Openshift/OpenShiftPlugin-v0.0.2.yml
 ImagestreamPlugin-v0.0.1: https://github.com/konveyor/crane-plugins/raw/main/plugins/Imagestream/ImagestreamPlugin-v0.0.1.yml
+OpenShiftPlugin-v0.0.3: https://github.com/konveyor/crane-plugins/raw/main/plugins/Openshift/OpenShiftPlugin-v0.0.3.yml
