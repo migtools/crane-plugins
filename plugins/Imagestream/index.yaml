@@ -1,8 +1,11 @@
-name: ImagestreamPlugin
-shortDescription: ImagestreamPlugin
-description: this is ImagestreamPlugin
-version: v0.0.1
-binaries:
+apiServer: crane.konveyor.io/v1alpha1
+kind: Plugin
+versions:
+- name: ImagestreamPlugin
+  shortDescription: ImagestreamPlugin
+  description: this is ImagestreamPlugin
+  version: v0.0.1
+  binaries:
   - os: linux
     arch: amd64
     uri: https://github.com/konveyor/crane-plugin-imagestream/releases/download/v0.0.1/amd64-linux-imagestreamplugin-v0.0.1
@@ -12,7 +15,7 @@ binaries:
   - os: darwin
     arch: arm64
     uri: https://github.com/konveyor/crane-plugin-imagestream/releases/download/v0.0.1/arm64-darwin-imagestreamplugin-v0.0.1
-optionalFields:
+  optionalFields:
   - flagName: "src-internal-registry"
     help:     "Internal registry hostname[:port] used to determine whether an istag references a local image"
     example:  "image-registry.openshift-image-registry.svc:5000"
