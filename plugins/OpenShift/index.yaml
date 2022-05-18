@@ -1,9 +1,9 @@
 apiServer: crane.konveyor.io/v1alpha1
 kind: Plugin
 versions:
-- name: OpenshiftPlugin
-  shortDescription: OpenshiftPlugin
-  description: this is OpenshiftPlugin
+- name: OpenShiftPlugin
+  shortDescription: OpenShiftPlugin
+  description: This plugin generates transformations related to OpenShift cluster specifics.
   version: v0.0.1
   binaries:
   - os: linux
@@ -27,7 +27,7 @@ versions:
     example:  "docker-registry.default.svc:5000=image-registry.openshift-image-registry.svc:5000,docker.io/foo=quay.io/bar"
 - name: OpenShiftPlugin
   shortDescription: OpenShiftPlugin
-  description: this is OpenShiftPlugin
+  description: This plugin generates transformations related to OpenShift cluster specifics.
   version: v0.0.2
   binaries:
   - os: linux
@@ -51,7 +51,7 @@ versions:
     example:  "docker-registry.default.svc:5000=image-registry.openshift-image-registry.svc:5000,docker.io/foo=quay.io/bar"
 - name: OpenShiftPlugin
   shortDescription: OpenShiftPlugin
-  description: this is OpenShiftPlugin
+  description: This plugin generates transformations related to OpenShift cluster specifics.
   version: v0.0.3
   binaries:
   - os: linux
