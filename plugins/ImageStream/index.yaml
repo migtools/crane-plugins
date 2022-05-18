@@ -1,9 +1,9 @@
 apiServer: crane.konveyor.io/v1alpha1
 kind: Plugin
 versions:
-- name: ImagestreamPlugin
-  shortDescription: ImagestreamPlugin
-  description: this is ImagestreamPlugin
+- name: ImageStreamPlugin
+  shortDescription: ImageStreamPlugin
+  description: This plugin is used to generate transformations specific to OpenShift ImageStreams.
   version: v0.0.1
   binaries:
   - os: linux
