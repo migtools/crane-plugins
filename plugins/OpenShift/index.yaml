@@ -1,10 +1,11 @@
 apiServer: crane.konveyor.io/v1alpha1
 kind: Plugin
+metadata:
+  name: OpenShiftPlugin 
+  annotations:
+    description: This plugin is used to generate transformations specific to OpenShift ImageStreams.
 versions:
-- name: OpenShiftPlugin
-  shortDescription: OpenShiftPlugin
-  description: This plugin generates transformations related to OpenShift cluster specifics.
-  version: v0.0.1
+- version: v0.0.1
   binaries:
   - os: linux
     arch: amd64
@@ -25,10 +26,7 @@ versions:
   - flagName: "registry-replacement"
     help:     "Map of image registry paths to swap on transform, in the format original-registry1=target-registry1,original-registry2=target-registry2..."
     example:  "docker-registry.default.svc:5000=image-registry.openshift-image-registry.svc:5000,docker.io/foo=quay.io/bar"
-- name: OpenShiftPlugin
-  shortDescription: OpenShiftPlugin
-  description: This plugin generates transformations related to OpenShift cluster specifics.
-  version: v0.0.2
+- version: v0.0.2
   binaries:
   - os: linux
     arch: amd64
@@ -49,10 +47,7 @@ versions:
   - flagName: "registry-replacement"
     help:     "Map of image registry paths to swap on transform, in the format original-registry1=target-registry1,original-registry2=target-registry2..."
     example:  "docker-registry.default.svc:5000=image-registry.openshift-image-registry.svc:5000,docker.io/foo=quay.io/bar"
-- name: OpenShiftPlugin
-  shortDescription: OpenShiftPlugin
-  description: This plugin generates transformations related to OpenShift cluster specifics.
-  version: v0.0.3
+- version: v0.0.3
   binaries:
   - os: linux
     arch: amd64
