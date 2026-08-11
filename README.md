@@ -63,3 +63,7 @@ This repository should be used as an example of how a plugin-index repository fo
           uri: <uri of binary>
           sha: <sha of binary>
     ```
+
+### Creating a new plugin
+
+For a complete guide on building your own crane transform plugin — including the plugin protocol, Go interface, project structure, code examples, testing patterns, and release instructions — see [docs/creating-crane-transform-plugin.md](docs/creating-crane-transform-plugin.md). The guide covers both simple plugins (whiteout/patch) and complex ones (full resource conversion).
