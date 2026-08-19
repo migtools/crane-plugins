@@ -357,7 +357,7 @@ Optional flags: `registry-mapping`, `imagestream-mapping`, `default-build-strate
 ```go
 module github.com/yourorg/crane-plugin-myplugin
 
-go 1.21
+go 1.24
 
 require (
     github.com/evanphx/json-patch v5.9.11+incompatible
@@ -372,7 +372,7 @@ require (
 ```go
 module github.com/yourorg/crane-plugin-converter
 
-go 1.21
+go 1.24
 
 require (
     github.com/konveyor/crane-lib v0.1.6-0.20260818123419-d279d85c1dd1  // Get latest via: go get github.com/konveyor/crane-lib@main
