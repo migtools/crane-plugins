@@ -77,7 +77,7 @@ A plugin can do one of four things per resource:
 | Delete (whiteout) | Set `IsWhiteOut: true` |
 | Replace with new resource(s) | Set `IsWhiteOut: true` + `NewResources` |
 
-**Important:** `NewResources` requires an unreleased version of crane-lib (post-v0.1.5). If you need it, use a `replace` directive in go.mod pointing to a local or fork build.
+**Important:** `NewResources` requires the latest version of crane-lib from GitHub main branch. Use `go get github.com/konveyor/crane-lib@main` to get it.
 
 ## CLI harness
 
@@ -118,7 +118,7 @@ transform.ParseOptionalFieldSliceVal(extras["my-list-flag"])
 
 ## Project structure
 
-```
+```text
 crane-plugin-YOURNAME/
 ├── main.go                    # entry point — wires plugin to cli.RunAndExit
 ├── go.mod
@@ -181,10 +181,19 @@ func (p *MyTransformPlugin) Run(request transform.PluginRequest) (transform.Plug
         registryMap = transform.ParseOptionalFieldMapVal(val)
     }
 
-    switch u.GetKind() {
-    case "ResourceToDelete":
+    // Filter by Group/Version/Kind to handle only specific resources
+    gvk := u.GroupVersionKind()
+    
+    switch {
+    case gvk.Group == "example.io" && gvk.Version == "v1" && gvk.Kind == "ResourceToDelete":
         whiteOut = true
-    case "ResourceToModify":
+    case gvk.Group == "example.io" && gvk.Version == "v1" && gvk.Kind == "ResourceToModify":
+        // Check if the annotation exists before creating remove patch (RFC 6902 requires target to exist)
+        annotations := u.GetAnnotations()
+        if _, exists := annotations["unwanted-key"]; !exists {
+            // Annotation doesn't exist, nothing to remove - pass through
+            return transform.PluginResponse{}, nil
+        }
         // Build JSON patches (RFC 6902)
         patchJSON := []byte(`[{"op":"remove","path":"/metadata/annotations/unwanted-key"}]`)
         var err error
@@ -277,8 +286,9 @@ func (p *ConverterPlugin) Metadata() transform.PluginMetadata {
 func (p *ConverterPlugin) Run(request transform.PluginRequest) (transform.PluginResponse, error) {
     u := request.Unstructured
 
-    // Filter: only handle specific resource types
-    if u.GetObjectKind().GroupVersionKind().Group != "source.api.io" {
+    // Filter: only handle specific resource types (complete GVK match)
+    gvk := u.GroupVersionKind()
+    if gvk.Group != "source.api.io" || gvk.Version != "v1" || gvk.Kind != "SourceKind" {
         return transform.PluginResponse{}, nil
     }
 
@@ -306,6 +316,10 @@ func (p *ConverterPlugin) Run(request transform.PluginRequest) (transform.Plugin
     if err != nil {
         return transform.PluginResponse{}, err
     }
+
+    // Ensure GVK is set (in case convert doesn't populate TypeMeta)
+    targetUnstructured.SetAPIVersion("target.api/v1beta1")
+    targetUnstructured.SetKind("TargetKind")
 
     return transform.PluginResponse{
         Version:      string(transform.V1),
@@ -340,7 +354,7 @@ Optional flags: `registry-mapping`, `imagestream-mapping`, `default-build-strate
 
 ### Simple plugin (Pattern A)
 
-```
+```go
 module github.com/yourorg/crane-plugin-myplugin
 
 go 1.21
@@ -355,13 +369,13 @@ require (
 
 ### Conversion plugin (Pattern B) — needs NewResources
 
-```
+```go
 module github.com/yourorg/crane-plugin-converter
 
 go 1.21
 
 require (
-    github.com/konveyor/crane-lib v0.1.5
+    github.com/konveyor/crane-lib v0.1.6-0.20260818123419-d279d85c1dd1  // Get latest via: go get github.com/konveyor/crane-lib@main
     github.com/sirupsen/logrus v1.9.4
     k8s.io/apimachinery v0.28.0
     // Add typed API deps as needed:
@@ -369,9 +383,6 @@ require (
     // github.com/shipwright-io/build v0.17.0
     // k8s.io/api v0.28.0
 )
-
-// NewResources is not in released crane-lib yet
-replace github.com/konveyor/crane-lib => ../crane-lib
 ```
 
 ## Testing

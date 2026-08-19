@@ -2,13 +2,13 @@
 
 ## What is this repository
 
-This is the **plugin index** for [crane](https://github.com/konveyor/crane) — a Kubernetes migration tool. It contains only YAML manifest files that register crane transform plugins and point to their binary download URLs. There is no plugin source code here.
+This is the **plugin index** for [crane](https://github.com/konveyor/crane) — a Kubernetes migration tool. It contains YAML manifest files that register crane transform plugins and point to their binary download URLs, plus documentation for creating new plugins. There is no plugin implementation source code here.
 
 Crane uses this index to discover and install plugins via `crane plugin-manager`.
 
 ## Repository structure
 
-```
+```text
 crane-plugins/
 ├── index.yaml                      # top-level index listing all plugins
 ├── plugins/
@@ -50,15 +50,15 @@ versions:
   - os: linux
     arch: amd64
     uri: https://github.com/org/repo/releases/download/v0.1.0/amd64-linux-pluginname-v0.1.0
-    sha: <sha256>
+    sha: <sha256>  # optional but recommended
   - os: darwin
     arch: amd64
     uri: https://github.com/org/repo/releases/download/v0.1.0/amd64-darwin-pluginname-v0.1.0
-    sha: <sha256>
+    sha: <sha256>  # optional but recommended
   - os: darwin
     arch: arm64
     uri: https://github.com/org/repo/releases/download/v0.1.0/arm64-darwin-pluginname-v0.1.0
-    sha: <sha256>
+    sha: <sha256>  # optional but recommended
 ```
 
 Multiple versions can be listed under `versions:`. Each version has its own binary URLs and optional field definitions.
