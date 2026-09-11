@@ -5,3 +5,5 @@ plugins:
   path: https://raw.githubusercontent.com/konveyor/crane-plugins/main/plugins/ImageStream/index.yaml
 - name: OpenShiftPlugin
   path: https://raw.githubusercontent.com/konveyor/crane-plugins/main/plugins/OpenShift/index.yaml
+- name: BuildConfigToBuildsPlugin
+  path: https://raw.githubusercontent.com/migtools/crane-plugins/main/plugins/BuildConfigToBuilds/index.yaml

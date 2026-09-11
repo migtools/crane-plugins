@@ -1,0 +1,47 @@
+apiServer: crane.konveyor.io/v1alpha1
+kind: Plugin
+versions:
+- binaries:
+  - arch: amd64
+    os: linux
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/amd64-linux-buildconfigtobuildsplugin-v0.1.0
+  - arch: arm64
+    os: linux
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/arm64-linux-buildconfigtobuildsplugin-v0.1.0
+  - arch: amd64
+    os: darwin
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/amd64-darwin-buildconfigtobuildsplugin-v0.1.0
+  - arch: arm64
+    os: darwin
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/arm64-darwin-buildconfigtobuildsplugin-v0.1.0
+  - arch: amd64
+    os: windows
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/amd64-windows-buildconfigtobuildsplugin-v0.1.0.exe
+  description: This plugin converts OpenShift BuildConfig resources to Shipwright
+    Build resources. It runs offline and never contacts a cluster.
+  name: BuildConfigToBuildsPlugin
+  optionalFields:
+  - example: image-registry.openshift-image-registry.svc:5000=quay.io/myorg
+    flagName: registry-mapping
+    help: 'Map of image registry paths to replace, format: old-registry1=new-registry1,old-registry2=new-registry2'
+  - example: myns/mystream:latest=quay.io/myorg/myimage:latest
+    flagName: imagestream-mapping
+    help: 'Map of ImageStreamTag or ImageStreamImage references, and bare DockerImage
+      names that relied on ImageStream lookupPolicy.local, to concrete image URLs,
+      format: namespace/name:tag=registry/image:tag (digest form: namespace/name@sha256:...=...)'
+  - example: docker=buildah-with-volumes,s2i=source-to-image-with-volumes
+    flagName: default-build-strategy
+    help: 'Name a copy of a strategy-catalog ClusterBuildStrategy, format: docker=buildah-with-volumes,s2i=source-to-image-with-volumes'
+  - example: docker.io,quay.io
+    flagName: search-registries
+    help: Comma-separated list of search registries for Buildah
+  - example: my-registry.local:5000
+    flagName: insecure-registries
+    help: Comma-separated list of insecure (HTTP/self-signed) registries. For a strategy-managed
+      push (buildah) these become the registries-insecure param; for a Shipwright-managed
+      push (source-to-image) an output image on one of these registries sets spec.output.insecure=true
+  - example: docker.io
+    flagName: block-registries
+    help: Comma-separated list of blocked registries for Buildah
+  shortDescription: BuildConfigToBuildsPlugin
+  version: v0.1.0
