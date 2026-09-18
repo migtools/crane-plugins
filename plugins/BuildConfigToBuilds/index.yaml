@@ -4,19 +4,19 @@ versions:
 - binaries:
   - arch: amd64
     os: linux
-    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/amd64-linux-buildconfigtobuildsplugin-v0.1.0
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.11.0/amd64-linux-buildconfigtobuildsplugin-v0.11.0
   - arch: arm64
     os: linux
-    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/arm64-linux-buildconfigtobuildsplugin-v0.1.0
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.11.0/arm64-linux-buildconfigtobuildsplugin-v0.11.0
   - arch: amd64
     os: darwin
-    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/amd64-darwin-buildconfigtobuildsplugin-v0.1.0
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.11.0/amd64-darwin-buildconfigtobuildsplugin-v0.11.0
   - arch: arm64
     os: darwin
-    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/arm64-darwin-buildconfigtobuildsplugin-v0.1.0
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.11.0/arm64-darwin-buildconfigtobuildsplugin-v0.11.0
   - arch: amd64
     os: windows
-    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.1.0/amd64-windows-buildconfigtobuildsplugin-v0.1.0.exe
+    uri: https://github.com/migtools/crane-plugin-buildconfig-to-builds/releases/download/v0.11.0/amd64-windows-buildconfigtobuildsplugin-v0.11.0.exe
   description: This plugin converts OpenShift BuildConfig resources to Shipwright
     Build resources. It runs offline and never contacts a cluster.
   name: BuildConfigToBuildsPlugin
@@ -44,4 +44,4 @@ versions:
     flagName: block-registries
     help: Comma-separated list of blocked registries for Buildah
   shortDescription: BuildConfigToBuildsPlugin
-  version: v0.1.0
+  version: v0.11.0
