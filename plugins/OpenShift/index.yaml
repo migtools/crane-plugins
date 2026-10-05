@@ -206,19 +206,22 @@ versions:
     os: darwin
     uri: https://github.com/migtools/crane-plugin-openshift/releases/download/v0.11.0/arm64-darwin-openshiftplugin-v0.11.0
   description: This plugin generates transformations related to OpenShift cluster
-    specifics.
+    specifics. Requires Crane v0.11 or newer.
   name: OpenShiftPlugin
   optionalFields:
   - example: 'true'
     flagName: strip-default-rbac
-    help: Whether to strip default RBAC including builder and deployers serviceAccounts,
+    help: >-
+      Whether to strip default RBAC including builder and deployers serviceAccounts,
       roleBindings for admin, builders, and deployers (default: true)
   - example: 'true'
     flagName: strip-default-cabundle
-    help: Whether to strip default CA Bundle (default: true)
+    help: >-
+      Whether to strip default CA Bundle (default: true)
   - example: 'true'
     flagName: strip-default-pull-secrets
-    help: Whether to strip Pod, converted DeploymentConfig, and BuildConfig default
+    help: >-
+      Whether to strip Pod, converted DeploymentConfig, and BuildConfig default
       pull secrets (beginning with builder/default/deployer-dockercfg-) that aren't
       replaced by the map param pull-secret-replacement (default: true)
   - example: default-dockercfg-h4n7g=default-dockercfg-12345,builder-dockercfg-abcde=builder-dockercfg-12345
@@ -233,7 +236,8 @@ versions:
     help: A comma-separated list of colon separated pvc renames.
   - example: 'false'
     flagName: convert-deploymentconfigs
-    help: Whether to convert compatible apps.openshift.io/v1 DeploymentConfigs to
+    help: >-
+      Whether to convert compatible apps.openshift.io/v1 DeploymentConfigs to
       apps/v1 Deployments (default: true)
   shortDescription: OpenShiftPlugin
   version: v0.11.0
